@@ -1,5 +1,12 @@
 # Customer Churn Prediction (Machine Learning)
 
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+imbalanced-learn
+
 ## 📊 Problem Statement
 Predict whether a customer will churn based on historical data.
 
@@ -52,3 +59,15 @@ y_pred = model.predict(X_test)
 # Evaluation
 from sklearn.metrics import accuracy_score
 print("Accuracy:", accuracy_score(y_test, y_pred))
+
+## 📊 Model Comparison
+
+| Model                | Accuracy |
+|---------------------|----------|
+| Logistic Regression | 82%      |
+| Random Forest       | 85%      |
+
+## 🔍 Key Insights
+- Customers with low tenure are more likely to churn
+- High monthly charges increase churn probability
+- 
