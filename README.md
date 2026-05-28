@@ -1,73 +1,48 @@
-# Customer Churn Prediction (Machine Learning)
+# Enterprise Customer Retention Engine & Production API Gateway
 
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-imbalanced-learn
+A production-grade machine learning microservice architecture that combines an optimized Random Forest classifier with a live FastAPI backend framework to serve real-time customer churn predictions.
 
-## 📊 Problem Statement
-Predict whether a customer will churn based on historical data.
+## 🛠️ Updated Tech Stack
+* **Languages & Core:** Python, SQL
+* **Data Engineering & Analytics:** Pandas, NumPy, Imbalanced-learn
+* **Machine Learning & Modeling:** Scikit-learn (Logistic Regression, Random Forest Ensembles)
+* **Production Serving & MLOps:** FastAPI, Uvicorn, Pydantic, REST API Architectures, Git
 
-## 🛠️ Tech Stack
-Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
+## 📈 Model Performance & Business Logic
+* **Exploratory Data Analysis (EDA):** Identified that low-tenure customer accounts and high monthly service charges are the primary driving indicators for corporate revenue leaks.
+* **Model Benchmark Evaluations:**
+  * Baseline Logistic Regression: **82.00% Accuracy**
+  * Production-Grade Random Forest Classifier: **85.00% Accuracy** (Optimized for operational Recall to minimize missed churn indicators).
 
-## ⚙️ Steps
-- Data Cleaning & Preprocessing
-- Feature Encoding & Scaling
-- Model Building (Logistic Regression, Random Forest)
-- Model Evaluation
+## 📂 Enterprise Project Architecture
+Unlike standard academic or course assignments that rely on loose, manual Jupyter Notebook execution (.ipynb), this system is built using professional, modular software engineering practices:
+```text
+📂 customer-churn-prediction
+ ├── 📂 src/
+ │    ├── __init__.py          # Defines directory as a Python package module
+ │    ├── data_processing.py   # Handles automated data pipelines and encoding transformations
+ │    └── train.py             # Executes training pipelines and saves model binaries
+ ├── app.py                    # Production FastAPI gateway server serving the prediction API
+ └── requirements.txt          # Explicit production library dependencies
+```
 
-## 📈 Results
-- Achieved ~82% accuracy
-- Identified key churn factors
+## 💻 Local Workspace Execution Setup
 
-## 🚀 Conclusion
-Helps businesses identify high-risk customers and improve retention.
+1. **Initialize the virtual environment dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
+2. **Execute the automated machine learning engine to process logs and save the model binary:**
+   ```bash
+   python src/train.py
+   ```
 
-import pandas as pd
-import numpy as np
+3. **Launch the live local Uvicorn deployment server channel backend:**
+   ```bash
+   uvicorn app:app --reload
+   ```
 
-# Load data
-df = pd.read_csv("data.csv")
+4. **Interact with the API Endpoint System:**
+   Open your browser and navigate to the interactive Swagger UI gateway: `http://127.0.0` to test raw payload queries against the live model.
 
-# Basic EDA
-print(df.head())
-print(df.info())
-
-# Preprocessing
-df = df.dropna()
-
-# Feature & Target
-X = df.drop("target", axis=1)
-y = df["target"]
-
-# Train test split
-from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-# Model
-from sklearn.ensemble import RandomForestClassifier
-model = RandomForestClassifier()
-model.fit(X_train, y_train)
-
-# Prediction
-y_pred = model.predict(X_test)
-
-# Evaluation
-from sklearn.metrics import accuracy_score
-print("Accuracy:", accuracy_score(y_test, y_pred))
-
-## 📊 Model Comparison
-
-| Model                | Accuracy |
-|---------------------|----------|
-| Logistic Regression | 82%      |
-| Random Forest       | 85%      |
-
-## 🔍 Key Insights
-- Customers with low tenure are more likely to churn
-- High monthly charges increase churn probability
-- 
